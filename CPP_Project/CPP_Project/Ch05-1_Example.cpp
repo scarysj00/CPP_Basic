@@ -1,4 +1,4 @@
-#include "io.h" 
+﻿#include "io.h" 
 
 void CountNumber() // 백준 예제 : 개수 세기
 {
@@ -6,11 +6,14 @@ void CountNumber() // 백준 예제 : 개수 세기
   cout << "숫자 개수를 입력해주세요 : ";
   cin >> Counter;
 
-  int Number[Counter];
+  //int Number[Counter]; - 정적 선언 : 크기에 변수 사용할 수 없음
+  // 동적 선언
+  int* pNumber = new int[Counter];
+
   for(int i=0; i<Counter; i++)
     {
       cout << "숫자 데이터를 입력해주세요 : ";
-      cin >> Number[i];
+      cin >> pNumber[i];
     }
 
   int FindNumber;
@@ -20,7 +23,7 @@ void CountNumber() // 백준 예제 : 개수 세기
   int FindCount = 0;
   for(int i=0; i<Counter; i++)
     {
-      if(Number[i] == FindNumber)
+      if(pNumber[i] == FindNumber)
       {
         FindCount++;
       } 
@@ -31,78 +34,85 @@ void CountNumber() // 백준 예제 : 개수 세기
 
 void LessNumber() //백준 예제 : X보다 작은 수
 {
-  int Counter = 0;
-  cout << "숫자 개수를 입력해주세요 : ";
-  cin >> Counter;
+    int Counter = 0;
+    cout << "숫자 개수를 입력해주세요 : ";
+    cin >> Counter;
 
-  int FindNumber;
-  cout << "기준 수를 입력해주세요 : ";
-  cin >> FindNumber;
+    int FindNumber;
+    cout << "기준 수를 입력해주세요 : ";
+    cin >> FindNumber;
 
-  int Number[Counter];
-  for(int i=0; i<Counter; i++)
+    // int Number[Counter];
+    int* pNumber = new int[Counter];
+
+    for (int i = 0; i < Counter; i++)
     {
-      cout << "숫자 데이터를 입력해주세요 : ";
-      cin >> Number[i];
+        cout << "숫자 데이터를 입력해주세요 : ";
+        cin >> pNumber[i];
     }
 
-  for(int i=0; i<Counter; i++)
+    for (int i = 0; i < Counter; i++)
     {
-      if(FindNumber > Number[i])
-      {
-        cout << Number[i] << " : ";
-      }
+        if (FindNumber > pNumber[i])
+        {
+            cout << pNumber[i] << " : ";
+        }
     }
 }
 
-void MissingNumber()
-{
-  int Counter = 0;
-  cout << "전체 학생 수를 입력해주세요 : ";
-  cin >> Counter;
-
-  int FindNumber;
-  cout << "과제 제출하지 않은 학생 수를 입력해주세요 : ";
-  cin >> FindNumber;
-
-  // 전체 학생의 번호 데이터 Set
-  int TotalMember[Counter];
-  for(int i=0; i<Counter; i++)
-    {
-      TotalMember[i] = i+1;
-    }
-
-  // 과제 제출한 학생 번호 Set
-  int WorkMember[Counter - FindNumber];
-  for(int i=0; i<(Counter - FindNumber); i++)
-    {
-      cin >> WorkMember[i]; 
-    }
-
-  // 제출 확인용 배열 변수 Set
-  bool Check[Counter];
-
-  for(int i=0; i<Counter; i++)
-    {
-      Check[i] = false;
-    }
-
-  // 제출한 학생, 미제출 학생 구분 - true/false
-  for(int i=0; i<(Counter - FindNumber); i++)
+  void MissingNumber()
   {
-    for(int j=0; j<Counter; j++) 
-      {
-        if(WorkMember[i] == TotalMember[j])
-        {
-          Check[j] = true;
-        }
-      }
-  }
+      int Counter = 0;
+      cout << "전체 학생 수를 입력해주세요 : ";
+      cin >> Counter;
 
+      int FindNumber;
+      cout << "과제 제출하지 않은 학생 수를 입력해주세요 : ";
+      cin >> FindNumber;
+
+      // 전체 학생의 번호 데이터 Set
+      // int TotalMember[Counter];
+      int* pTotalMember = new int[Counter];
+
+      for (int i = 0; i < Counter; i++)
+      {
+          pTotalMember[i] = i + 1;
+      }
+
+      // 과제 제출한 학생 번호 Set
+      //int WorkMember[Counter - FindNumber];
+      int* pWorkMember = new int[Counter - FindNumber];
+
+      for (int i = 0; i < (Counter - FindNumber); i++)
+      {
+          cin >> pWorkMember[i];
+      }
+
+      // 제출 확인용 배열 변수 Set
+      //bool Check[Counter];
+      bool* pCheck = new bool[Counter];
+
+      for (int i = 0; i < Counter; i++)
+      {
+          pCheck[i] = false;
+      }
+
+      // 제출한 학생, 미제출 학생 구분 - true/false
+      for (int i = 0; i < (Counter - FindNumber); i++)
+      {
+          for (int j = 0; j < Counter; j++)
+          {
+              if (pWorkMember[i] == pTotalMember[j])
+              {
+                  pCheck[j] = true;
+              }
+          }
+      }
+  
   // 미제출 학생 번호 추출
   for(int i=0; i<Counter; i++)
     {
-      if(Check[i] == false)
+      if(pCheck[i] == false)
       {
         cout << i+1 << "번 안냄" << endl;
       }

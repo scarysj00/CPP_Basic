@@ -1,4 +1,4 @@
-#include "io.h" 
+﻿#include "io.h" 
 
 void IndexChar() // 백준예제 : 문자열 - 문자와 문자열
 { 
@@ -16,31 +16,41 @@ void IndexChar() // 백준예제 : 문자열 - 문자와 문자열
 
 void AlphaNumber() // 백준예제 : 문자열 - 알파벳 찾기
 {
-  char Word[20];
-  
-  cout << "원하는 단어를 입력해주세요.";
-  cin >> Word;
+    char Word[20];
+    int WordSize = sizeof(Word) - 1;
 
-  char Alpha[30] = "abcdefghijklmnopqrstuvwxz";
+    cout << "원하는 단어를 입력해주세요.";
+    cin >> Word;
 
-  int Check[30];
-  for(int i=0; i<30; i++)
+    char Alpha[] = "abcdefghijklmnopqrstvuwxyz";
+    int AlphaSize = sizeof(Alpha) - 1;
+
+    // 배열 변수 선언시 크기 인덱스는 변수로 지정할 수 없음
+    // C++ 컴파일 언어 => 컴파일하는 시간에 배열 크기가 결정 => 크기를 변수로 지정하면 크기를 지정할 수 없음
+    // int Check[AlphaSize];
+
+    // int Check[26];
+    int* pCheck = new int[AlphaSize];
+
+    for (int i = 0; i < AlphaSize; i++)
     {
-      Check[i] = -1;
+        pCheck[i] = -1;
     }
-  
-  for(int i=0; i<(sizeof(Word)-1); i++)
+
+    for (int i = 0; i < WordSize; i++)
     {
-      for(int j=0; j<(sizeof(Alpha)-1); j++)
+        for (int j = 0; j < AlphaSize; j++)
         {
-          if(Word[i] == Alpha[j])
-          {
-            Check[j] = i;
-          }
+            if (Word[i] == Alpha[j]) {
+                if (pCheck[j] == -1) {
+                    pCheck[j] = i;
+                }
+            }
         }
     }
-  for(int i=0; i<30; i++)
+
+    for (int i = 0; i < AlphaSize; i++)
     {
-      cout << Check[i] << " ";
+        cout << pCheck[i] << " ";
     }
 }

@@ -1,8 +1,9 @@
-#include "io.h"
+﻿#include "io.h"
 
 void StatementIf() {
   // if
   int Total;
+  cin >> Total;
   // 총점이 60 이상이면 합격
   if (Total >= 60) {
     cout << "합격" << endl;
@@ -198,7 +199,6 @@ void VarScope(int Number) {
   int FunctionValue = 20;
 
   if (true)
-    ;
   {
     int BlockValue = 30;
 

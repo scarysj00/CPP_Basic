@@ -38,3 +38,9 @@ void AlphaNumber();
 
 void Structure();
 void CallbyValue();
+
+void PointerDefine();
+void DynamicVariable();
+void BallInsert();
+void BallSwap();
+
