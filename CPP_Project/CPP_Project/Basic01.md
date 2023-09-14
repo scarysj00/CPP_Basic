@@ -195,9 +195,9 @@ Function(10); <= 10 : argument
 ```
 struct Car
 {
-  char name[30];
-  char mode[30];
-  int year;
+  char Name[30];
+  char Mode[30];
+  int Year;
   int TireSize;
   char Color[30];
  }
@@ -225,9 +225,9 @@ struct Car
 ```
 class Car
 {
-  char name[30];
-  char mode[30];
-  int year;
+  char Name[30];
+  char Mode[30];
+  int Year;
   int TireSize;
   char Color[30];
 
@@ -246,6 +246,19 @@ cout << Ray.year << endl;
 Ray.Drive();
 ```
 
+## 생성자(Constructor)와 소멸자(Destructor)
+
+### 생성자
+
+  - 클래스 타입의 변수가 생성될 때 초기화하는 함수
+  
+  - 초기화 기능 / 초기화가 진행된 후 연계해서 다른 기능 동작
+
+### 소멸자
+  
+  - 클래스 쓰임새가 다했거나 프로그램 종료 시 생성되었던 클래스를 해제하는 함수
+  
+  - 소멸 기능 / 클래스 소멸이 진행된 후 연계해서 다른 기능 동작
 
 
 
