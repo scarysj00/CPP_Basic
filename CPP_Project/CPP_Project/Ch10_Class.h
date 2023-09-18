@@ -13,6 +13,7 @@ public:
 	{
 		Velocity = V;
 	}
+
 	void DriveVelocity();
 	void DriveTime();
 }; 
