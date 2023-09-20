@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 class Car
 {
 	char Name[30];
@@ -13,7 +11,6 @@ public:
 	{
 		Velocity = V;
 	}
-
 	void DriveVelocity();
 	void DriveTime();
-}; 
+};

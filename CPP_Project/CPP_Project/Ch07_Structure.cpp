@@ -76,7 +76,7 @@ void Structure()
 
     int c = 10;
 
-    void CallByvalue()
+    void CallByValue()
     {
         // ChangeValue(c);
         c = ChangeValue2();

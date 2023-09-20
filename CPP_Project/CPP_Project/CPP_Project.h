@@ -37,10 +37,22 @@ void IndexChar();
 void AlphaNumber();
 
 void Structure();
-void CallbyValue();
+void CallByValue();
 
 void PointerDefine();
 void DynamicVariable();
 void BallInsert();
 void BallSwap();
 
+void ArrayClass();
+void StringClass();
+void VectorClass();
+
+int SumNumber(int a, int b);
+float SumNumber(float a, float b);
+
+template <typename T>
+T SumType(T a, T b)
+{
+	return (a + b);
+}
