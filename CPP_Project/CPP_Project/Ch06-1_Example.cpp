@@ -1,20 +1,22 @@
-﻿#include "io.h" 
+﻿#include "io.h"
 
-void IndexChar() // 백준예제 : 문자열 - 문자와 문자열
-{ 
-  char word[20];
-  int number;
-  
-  cout << "원하는 단어를 입력해주세요.";
-  cin >> word;
+void IndexChar()
+{
 
-  cout << "출력을 원하는 자리 수를 입력해주세요.";
-  cin >> number; 
+    char word[20];
+    int number;
 
-  cout << word[number-1];
+    cout << "원하는 단어를 입력해주세요.";
+    cin >> word;
+
+    cout << "출력을 원하는 자리 수를 입력해주세요.";
+    cin >> number;
+
+    cout << word[number - 1];
+
 }
 
-void AlphaNumber() // 백준예제 : 문자열 - 알파벳 찾기
+void AlphaNumber()
 {
     char Word[20];
     int WordSize = sizeof(Word) - 1;

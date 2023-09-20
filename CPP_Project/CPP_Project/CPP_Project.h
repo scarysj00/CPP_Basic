@@ -33,12 +33,11 @@ void MissingNumber();
 void BubbleSort();
 
 void String();
-void IndexChar();
-void AlphaNumber();
-
 void Structure();
 void CallByValue();
-
+void IndexChar();
+void AlphaNumber();
+void Enum();
 void PointerDefine();
 void DynamicVariable();
 void BallInsert();
